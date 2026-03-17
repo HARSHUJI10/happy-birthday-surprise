@@ -15,16 +15,22 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
       background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
       font-family: 'Poppins', sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       color: #590d22;
       position: relative;
+      padding: 40px 0;
     }
 
     .hearts-container {
@@ -88,6 +94,8 @@
       width: 460px;
       z-index: 10;
       position: relative;
+      margin-top: 30px;
+      margin-bottom: 40px;
     }
 
     h1 {
@@ -395,6 +403,10 @@
     }
 
     @media (max-width: 600px) {
+      body {
+        padding: 20px 0 35px;
+      }
+
       h1 {
         font-size: 2.35rem;
       }
@@ -402,6 +414,8 @@
       .card {
         width: 92%;
         padding: 22px 16px 28px;
+        margin-top: 20px;
+        margin-bottom: 30px;
       }
 
       .btn {
@@ -511,7 +525,7 @@
         <button class="btn btn-secondary round-btn" id="no-btn">No 🥺</button>
       </div>
 
-     <img id="no-gif" src="./not-for-you-im-sorry.gif" alt="no reaction">
+      <img id="no-gif" src="./not-for-you-im-sorry.gif" alt="no reaction">
     </div>
 
     <div class="screen" id="screen3">
@@ -577,6 +591,10 @@
       });
       setTimeout(() => {
         document.getElementById(id).classList.add("active");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       }, 100);
     }
 
