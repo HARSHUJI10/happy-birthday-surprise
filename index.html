@@ -511,7 +511,7 @@
         <button class="btn btn-secondary round-btn" id="no-btn">No 🥺</button>
       </div>
 
-      <img id="no-gif" src="./not-for-you im-sorry.gif" alt="no reaction">
+      <img id="no-gif" src="./not-for-you-im-sorry.gif" alt="no reaction">
     </div>
 
     <div class="screen" id="screen3">
@@ -533,37 +533,10 @@
       </div>
 
       <div class="date-options">
-        <a
-          class="date-btn"
-          href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Movie%20Date%20with%20you%20%F0%9F%8E%AC%E2%9C%A8"
-          target="_blank"
-        >
-          Movie Date 🎬
-        </a>
-
-        <a
-          class="date-btn"
-          href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Cafe%20Date%20with%20you%20%E2%98%95%E2%9C%A8"
-          target="_blank"
-        >
-          Cafe Date ☕
-        </a>
-
-        <a
-          class="date-btn"
-          href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Street%20Food%20Date%20with%20you%20%F0%9F%8D%9C%E2%9C%A8"
-          target="_blank"
-        >
-          Street Food Date 🍜
-        </a>
-
-        <a
-          class="date-btn"
-          href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Anywhere%20You%20Want%20for%20our%20date%20%F0%9F%92%96%E2%9C%A8"
-          target="_blank"
-        >
-          Anywhere You Want 💖
-        </a>
+        <a class="date-btn" href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Movie%20Date%20with%20you%20%F0%9F%8E%AC%E2%9C%A8" target="_blank">Movie Date 🎬</a>
+        <a class="date-btn" href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Cafe%20Date%20with%20you%20%E2%98%95%E2%9C%A8" target="_blank">Cafe Date ☕</a>
+        <a class="date-btn" href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Street%20Food%20Date%20with%20you%20%F0%9F%8D%9C%E2%9C%A8" target="_blank">Street Food Date 🍜</a>
+        <a class="date-btn" href="https://wa.me/918459128281?text=Hey%20jaan%20%E2%9D%A4%EF%B8%8F%20I%20choose%20Anywhere%20You%20Want%20for%20our%20date%20%F0%9F%92%96%E2%9C%A8" target="_blank">Anywhere You Want 💖</a>
       </div>
 
       <p class="final-note">
@@ -602,7 +575,6 @@
       document.querySelectorAll(".screen").forEach(screen => {
         screen.classList.remove("active");
       });
-
       setTimeout(() => {
         document.getElementById(id).classList.add("active");
       }, 100);
@@ -615,7 +587,6 @@
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.fontSize = Math.random() * 18 + 16 + "px";
       heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-
       document.getElementById("hearts-container").appendChild(heart);
       setTimeout(() => heart.remove(), 7000);
     }
@@ -628,7 +599,6 @@
     function moveButton() {
       const maxX = window.innerWidth - noBtn.offsetWidth - 20;
       const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-
       const randomX = Math.max(20, Math.floor(Math.random() * maxX));
       const randomY = Math.max(20, Math.floor(Math.random() * maxY));
 
@@ -648,7 +618,6 @@
     document.getElementById("yes-btn").addEventListener("click", () => {
       showScreen("screen3");
       fireConfetti();
-
       if (!confettiInterval) {
         confettiInterval = setInterval(fireConfetti, 2500);
       }
@@ -656,7 +625,6 @@
 
     function fireConfetti() {
       const colors = ["#ff4d6d", "#ffb3c6", "#ff8fa3", "#c9184a", "#ffd700", "#ffffff"];
-
       for (let j = 0; j < 80; j++) {
         const conf = document.createElement("div");
         conf.classList.add("confetti");
@@ -664,11 +632,9 @@
         conf.style.top = "-20px";
         conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         conf.style.animationDuration = Math.random() * 2 + 2 + "s";
-
         if (Math.random() > 0.5) {
           conf.style.borderRadius = "50%";
         }
-
         document.body.appendChild(conf);
         setTimeout(() => conf.remove(), 4000);
       }
@@ -681,7 +647,6 @@
     function tryPlayMusic() {
       music.volume = 1;
       music.muted = false;
-
       music.play()
         .then(() => {
           musicStartBtn.style.display = "none";
@@ -694,12 +659,10 @@
 
     function openMainSurprise() {
       overlay.style.opacity = "0";
-
       setTimeout(() => {
         overlay.style.display = "none";
         setTimeout(typeWriter, 500);
       }, 500);
-
       tryPlayMusic();
     }
 
@@ -714,7 +677,6 @@
     }
 
     overlay.addEventListener("click", openMainSurprise);
-
     musicStartBtn.addEventListener("click", () => {
       tryPlayMusic();
     });
