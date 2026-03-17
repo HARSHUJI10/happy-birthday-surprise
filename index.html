@@ -338,12 +338,6 @@
       }
     }
 
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-15px); }
-      60% { transform: translateY(-8px); }
-    }
-
     .lyrics {
       font-family: 'Dancing Script', cursive;
       font-size: 1.55rem;
@@ -481,7 +475,7 @@
   <div class="hearts-container" id="hearts-container"></div>
 
   <audio id="bg-music" loop preload="auto">
-    <source src="/palat1.mp3" type="audio/mpeg">
+    <source src="./Palat.mp3" type="audio/mpeg">
   </audio>
 
   <button id="music-start-btn">Tap for Music 🎵</button>
@@ -489,7 +483,7 @@
   <div class="card">
     <div class="screen active" id="screen1">
       <div class="top-gif-wrap">
-        <img src="/happy-birthday.gif" alt="birthday" class="top-gif">
+        <img src="./happy-birthday.gif" alt="birthday" class="top-gif">
       </div>
 
       <h1 class="glow-text">Happy Birthday<br>My Love 💖</h1>
@@ -503,7 +497,7 @@
 
     <div class="screen" id="screen2">
       <div class="top-gif-wrap">
-        <img src="/bubu-dudu-kisses.gif" alt="kiss" class="top-gif small">
+        <img src="./bubu-dudu-kisses.gif" alt="kiss" class="top-gif small">
       </div>
 
       <h1>One more thing...</h1>
@@ -517,12 +511,12 @@
         <button class="btn btn-secondary round-btn" id="no-btn">No 🥺</button>
       </div>
 
-      <img id="no-gif" src="/not-for-you-im-sorry.gif" alt="no reaction">
+      <img id="no-gif" src="./not-for-you im-sorry.gif" alt="no reaction">
     </div>
 
     <div class="screen" id="screen3">
       <div style="text-align:center; margin-bottom:15px;">
-        <img src="/cute-cat-couple.gif" alt="love" class="cute-gif">
+        <img src="./cute-cat-couple.gif" alt="love" class="cute-gif">
       </div>
 
       <h1 class="glow-text" style="font-size:2.5rem;">Yayyy! 💕</h1>
@@ -579,7 +573,7 @@
   </div>
 
   <script>
-   const SITE_URL = "https://harshuji10.github.io/happy-birthday-surprise/?open=1";
+    const SITE_URL = "https://harshuji10.github.io/happy-birthday-surprise/?open=1";
     const text = "Happy Birthday to the most amazing, beautiful, and wonderful person in my life. Every single moment with you is a blessing. I love you more than words can ever say! ✨💕";
     let i = 0;
     const speed = 60;
@@ -685,6 +679,9 @@
     const musicStartBtn = document.getElementById("music-start-btn");
 
     function tryPlayMusic() {
+      music.volume = 1;
+      music.muted = false;
+
       music.play()
         .then(() => {
           musicStartBtn.style.display = "none";
@@ -712,7 +709,7 @@
       window.addEventListener("load", () => {
         overlay.style.display = "none";
         setTimeout(typeWriter, 500);
-        tryPlayMusic();
+        musicStartBtn.style.display = "block";
       });
     }
 
@@ -722,7 +719,7 @@
       tryPlayMusic();
     });
 
-    window.onload = () => {
+    window.addEventListener("load", () => {
       for (let j = 0; j < 20; j++) {
         const sparkle = document.createElement("div");
         sparkle.classList.add("sparkle");
@@ -731,7 +728,7 @@
         sparkle.style.animationDelay = Math.random() * 2 + "s";
         document.getElementById("hearts-container").appendChild(sparkle);
       }
-    };
+    });
   </script>
 </body>
 </html>
